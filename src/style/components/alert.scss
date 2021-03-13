@@ -1,0 +1,42 @@
+//Colors
+
+// type: error
+$alert_error_bg_color: #FE7C00;
+$alert_error_color: #fff;
+// end type: error
+
+
+.alert{
+    padding: 20px 50px 20px 20px;
+    position: relative;
+    &__title,&__content{
+        display: block;
+    }
+    &__title{
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    &__content{
+        font-size: .9em;
+    }
+    &__exit{
+        background-color: transparent;
+        border-width: 0;
+        color: white;
+        padding: 10px;
+        position: absolute;
+        font-size: 1.4em;
+        top:0;
+        right: 0;
+        cursor: pointer;
+    }
+
+    &--error{
+        color: $alert_error_color;
+        background-color: $alert_error_bg_color;
+    }
+
+  
+}

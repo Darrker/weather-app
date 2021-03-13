@@ -1,0 +1,62 @@
+$weather_table_left_right_padding: 15px;
+$weather_table_border_color: #dedef3;
+$weather_table_bg_color: #fff;
+$weather_table_header_bg_color: #f1f1f1;
+
+.weather-table{
+    
+    background-color: $weather_table_bg_color;
+
+    &__title{
+        font-size: 1.4em;
+        padding: 5px $weather_table_left_right_padding;
+    }
+    &__icon{
+        height: 30px;
+    }
+
+    &__content{
+        display: flex;
+    }
+
+    &__col{
+        width: 120px;
+        box-sizing: border-box;
+        border-right: 1px solid $weather_table_border_color;
+        text-align: center;
+        
+
+        $col: &;
+        
+        &--days{
+            width: 200px;
+            text-align: left;
+
+            #{$col}{
+                &__cell{
+                    &--header{
+                        justify-content: start;
+                    }
+                }
+            }
+        }
+
+        &__cell{
+            padding: 10px $weather_table_left_right_padding;
+            border-bottom: 1px solid $weather_table_border_color;
+            font-size: .85em;
+            &--header{
+                font-size: 1em;
+                height: 50px;;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 900;
+                background-color: $weather_table_header_bg_color;
+
+            }
+        }
+    }
+
+
+}

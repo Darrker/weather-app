@@ -1,0 +1,76 @@
+@import './global_variables.scss';
+@import './components/alert.scss';
+@import './components/section_title.scss';
+@import './components/city_box.scss';
+@import './components/weather_table.scss';
+@import './components/weather_form.scss';
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.app{
+  
+}
+.app-header{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+   
+    background-image: url('../assets/app_bg.jpg');
+    
+    background-position:  center;
+    position: relative;
+    z-index: 1;
+    &::before{
+        content: '';
+        background-color: rgba(0,0,0,.6);
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        
+    }
+
+    &__content{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+    }
+  
+
+
+    &__page-title{
+        font-size: 3.5em;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        line-height: 1;
+        color: white;
+
+        &__strong{
+            color: $primary_color;
+            font-weight: 900;
+        }
+    }
+
+    .weather-table{
+        margin-top: 50px;
+    }
+}
+
+
+
+
+
+
+
+

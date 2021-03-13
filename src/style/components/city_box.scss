@@ -1,0 +1,43 @@
+$citybox_bg_color: #fff;
+$citybox_bg__hover_color: #f2f2f2;
+$citybox_border_color: #dedef3;
+
+.city-box{
+    border: 1px solid $citybox_border_color;
+    padding: 30px;
+    box-shadow: 0 0 15px -6px rgba(0,0,0,0.1);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: background-color .3s ease-in-out;
+    will-change: background-color;
+    background-color: $citybox_bg_color;
+    &:hover{
+        background-color: $citybox_bg__hover_color;
+    }
+
+    &__name{
+        font-weight: 900;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        
+    }
+
+    &__icon{
+        max-height: 35px;
+        width: 30px;
+        margin-right: 10px;
+        
+    }
+
+    &__weather-parameter{
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: .9em;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        
+    }
+}
