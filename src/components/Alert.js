@@ -1,5 +1,5 @@
 import React from 'react';
-
+// Wyświetlenie komunikatu
 class Alert extends React.Component{
   
     constructor(props){

@@ -1,7 +1,7 @@
 
 import {getCityData} from '../helpers/getCityData';
 
-
+// Redux Action który pobiera informacje o pogodzie z jednego dnia dla wybranych miast.
 export const getPopularCitiesAction = cities =>{
     return async function(dispatch){
         var citiesData = [];

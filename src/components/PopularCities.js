@@ -1,15 +1,20 @@
 import React from 'react';
 import CityBox from '../components/CityBox';
 import {setUnit} from '../helpers/setUnit';
+
+// Wyświetla dane pogodowe miast podanych w props. Dodatkowo może je porównać z dowolnym miastem
 class PopularCities extends React.Component{
+    // Stała która odpowiada za tłumaczenie gdy wartość jest większa, mniejsza bądź równa
     COMPARE_TEXT = {
         greater: 'więcej',
         less: 'mniej',
         equal: 'identyczna',
     }
+    // Zwraca  różnice między dwiema wartościami
     relDiff(a, b) {
         return  Math.round(a - b,2) ;
     }
+    // Porównuje dwie wartości w tym przypadku pogodowe i zwraca czy dana wartość jest większa, mniejsza bądź równa. Razem z jednostką
     compareCitiesWeatherValue(cityValueCompareTo, cityValue, unit, text = this.COMPARE_TEXT ){
         cityValueCompareTo = parseFloat(cityValueCompareTo);
         cityValue = parseFloat(cityValue);
@@ -28,6 +33,8 @@ class PopularCities extends React.Component{
 
        
     }
+
+    // metoda która zwraca komponent citybox zgodnei z podanymi wartościami w komponencie
     renderCityBox(name,heat,wind,humidity, key){
         return(
             <div className="col-12 col-sm-6 col-md-3" key={key}>
@@ -40,6 +47,7 @@ class PopularCities extends React.Component{
             </div>
         );
     }
+    // Zwraca listę cityboxów. Dodatkowo sprawdza czy te boxy trzeba porównać z konkretnym miastem.
     renderCityBoxes(){
   
        if(typeof this.props.compareTo !== 'undefined'){

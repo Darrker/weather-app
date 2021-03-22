@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 
 
 class HomeLayout extends Layout{
-    
+    // Pobiera popularne miasta ze stałej cities z klasy Layout
     async componentDidMount(){
         this.props.disableError();
            this.setState({isLoading: true});
@@ -31,6 +31,7 @@ class HomeLayout extends Layout{
            
             
         }
+        // Zdarzenie po zatwierdzeniu formularza. Przestawia jedynie url
         onSubmitWeatherForm = (city)=>{
             this.props.history.push(`/${city.toLowerCase()}`);
             

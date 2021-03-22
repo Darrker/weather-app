@@ -16,29 +16,33 @@ import {connect} from 'react-redux';
 import { getCityAction } from '../../actions/getCityAction';
 import { getPopularCitiesAction } from '../../actions/getPopularCitiesAction';
 import { disableErrorAction } from '../../actions/disableErrorAction';
+
+// component renderowany w scieżce /:city
 class CityLayout extends Layout{
    
     state={
-        popularCities: [],
-        reserveCity: [],
-        citiesToDisplay: [],
-        currentCityNowData: [],
+        popularCities: [], // pobrane popularne miasta ze stałej cities z klasy Layoyt
+        reserveCity: [], // pobrane rezerwowe ze stałej cities z klasy Layoyt
+        citiesToDisplay: [], // W tej tablicy zbieramy miasta które wyświetlamy w PopularCities
+        currentCityNowData: [], // Dane o konkretnym mieście przychodzą nam z 3 dni. Nie chciałem robić kolejnego zapytania więc w metodzie setCurrentCityNowData() je parsuje na te z jednego dnia
         isLoading: true,
     }
         
    async componentDidMount(){
+       // usuwamy errory, jeśli były wcześniej
     this.props.disableError();
        this.setState({isLoading: true});
-     
+        // pobieramy dane
         await Promise.all([this.props.getPopularCitiesAction([...this.cities.POPULAR, this.cities.RESERVE]),
                         this.props.getCityWeatherData(this.props.match.params.city)])
-                      
+        // Jeśli wystąpił errro to zablokuj przenoszenie danych z reduxa do stanu tego komponentu              
         if(!this.props.error){
             this.setState(
                 {isLoading: false,
                  popularCities: this.props.popularCities.slice(0, -1),
                  reserveCity: this.props.popularCities[this.props.popularCities.length-1]     
                 }
+                //  ^oddzielenie popularnych miast od rezerwowych^
             );
     
             this.setCurrentCityNowData(this.props.currentCity);
@@ -47,7 +51,7 @@ class CityLayout extends Layout{
        
         
     }
-
+    // Jeśłi dane miasto jest takie samo jak popularne to zamieniamy je na rezerwowe
     setPopularCitiesToDisplay(){
        var theSameCityIndex =  this.state.popularCities.findIndex(city => city.name === this.props.match.params.city);
     
@@ -61,6 +65,7 @@ class CityLayout extends Layout{
         }
     }
 
+    // Parsowanie danych z 3 dni na jeden dzień
     setCurrentCityNowData(dataToParse){
         this.setState({
             currentCityNowData: {
@@ -70,11 +75,14 @@ class CityLayout extends Layout{
             }
         })
     }
-
+    // Zdarzenie po zatwierdzeniu formularza. 
+    // Zmień Url, pobierz dane, przetwórz je i dodaj do stanów komponetu
+    // funkcja remo
     onFormSubmit = async city =>{
         this.props.disableError();
         this.props.history.push(`/${city.toLowerCase()}`);
         this.setState({isLoading: true});
+        // removeAccents wycina polskie znaki. Tak żeby polski użytkownik nie miał problemu ze skorzystania z zagranicznego apii
         city = removeAccents(city.toLowerCase());
         await this.props.getCityWeatherData(`/${city.toLowerCase()}`);
         if(!this.props.error){
@@ -139,5 +147,5 @@ const mapStateToProps = state =>{
             currentCity: state.currentCity,    
         };   
 }
-
+// połaczenie z reduxem
 export default connect(mapStateToProps, {getCityWeatherData: getCityAction, getPopularCitiesAction, disableError: disableErrorAction})(CityLayout);

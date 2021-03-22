@@ -1,7 +1,7 @@
 
 import {getCityData} from '../helpers/getCityData';
 
-
+// Redux Action który pobiera informacje o pogodzie z 3 ostatnich dni
 export const getCityAction = city =>{
     return async function(dispatch){
         

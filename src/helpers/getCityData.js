@@ -1,5 +1,12 @@
 import axios from 'axios';
 import {getCurrentHour} from './getCurrentHour';
+
+// Pobiera dane  wybranym mieście z wybranego zakresu ( liczby dni) i odpowiednio je formatuje.
+// Dane są filtrowane na podstawie danej godziny. 
+// Dane w api są ułożone w tablicy o indexach 0-23. Index określa wartość pogodową o danej godzinie. 
+// To rozwiązanie ma swoje wady. Ponieważ pobierając aktualną godzinę mam sporę przesuniecie. 
+// Jeśli jest godzina 21:59. To i tak ta funkcja zwróci mi dane z 21 a nie z 22. To jest do poprawny, ale jestem tego świadomy. 
+// Brak czasu ;)
 export var getCityData = async (city, days) =>{
     var currentWeatherData = {
         heat: [],

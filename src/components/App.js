@@ -11,7 +11,7 @@ import CityLayout from '../components/layouts/CityLayout';
 import NotFoundLayout from '../components/layouts/NotFoundLayout';
 // End  Layout
 
-
+// Głowny komponent sterujący routingiem
 class App extends React.Component{
 
   

@@ -1,3 +1,4 @@
+// Funkcja która zwracą odpowiednią jednostkę na podstawie parametru
 export var setUnit = function(type){
     var unit ;
     switch(type){

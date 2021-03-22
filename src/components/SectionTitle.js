@@ -1,5 +1,6 @@
 import React from 'react';
 
+// tytuł sekcji
 class SectionTitle extends React.Component{
 
     render(){

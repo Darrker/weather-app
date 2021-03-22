@@ -6,10 +6,10 @@ import {capitalize} from '../helpers/capitalize';
 import {setUnit} from '../helpers/setUnit';
 
 
-
+// Table wartośći pogodownych z 3 dni dla danego miasta
 class WeatherTable extends React.Component{
 
-    
+    // metoda do renderowania kolumn z podaną wartością oraz jednostką
     renderCells(data, type){
         var unit = setUnit(type);
         

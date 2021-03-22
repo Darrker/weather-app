@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// komponent trzymający treść w headerze z obrazem
 class AppHeader extends React.Component{
 
     render(){

@@ -1,18 +1,20 @@
 import React from 'react';
 
-
 import {capitalize} from '../helpers/capitalize';
+
+// formularz do wyboru miasta
 class WeatherForm extends React.Component{
     
     constructor(props){
         super(props);
-
+        // Jesli formularz ma domyśłną wartość to ustawimy ją i tworzymy pierwszą literę wielką
         this.state={
             inputValue: typeof this.props.value != 'undefined' ? capitalize(this.props.value) : '',
             
         };
     }
 
+    // emitujemy wartość wpisaną w formularzu wyżej.
     formSubmit = (e) =>{
         e.preventDefault();
         this.props.onSubmit(capitalize(this.state.inputValue));

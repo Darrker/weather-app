@@ -2,6 +2,8 @@ import React from 'react';
 import heat_icon from '../assets/heat.svg';
 import wind_icon from '../assets/wind.svg';
 import humidity_icon from '../assets/humidity.svg';
+
+// box wyświetaljaćy podstawowe dane pogodowe wybranego miasta
 class CityBox extends React.Component{
     render(){
         return(

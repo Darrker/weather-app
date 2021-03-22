@@ -4,6 +4,8 @@ import AppHeaderPageTitle from '../../components/AppHeaderPageTitle';
 import WeatherForm from '../../components/WeatherForm';
 import Alert from '../../components/Alert';
 import Layout from './Layout';
+
+// Component dla scieżki nieznalezionej
 class NotFoundLayout extends Layout{
     onSubmitWeatherForm = (city)=>{
         this.props.history.push(`/${city.toLowerCase()}`);

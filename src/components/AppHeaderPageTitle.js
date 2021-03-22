@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// tytuł strony
 class AppHeaderPageTitle extends React.Component{
 
     render(){
