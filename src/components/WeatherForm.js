@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {capitalize} from '../helpers/capitalize';
-
+import removeAccents from 'remove-accents';
 // formularz do wyboru miasta
 class WeatherForm extends React.Component{
     
@@ -17,7 +17,8 @@ class WeatherForm extends React.Component{
     // emitujemy wartość wpisaną w formularzu wyżej.
     formSubmit = (e) =>{
         e.preventDefault();
-        this.props.onSubmit(capitalize(this.state.inputValue));
+        // removeAccents - Usuwa polskie znaki
+        this.props.onSubmit(capitalize(removeAccents(this.state.inputValue)));
     }
     render(){
       
