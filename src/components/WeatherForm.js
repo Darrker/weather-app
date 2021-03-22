@@ -1,26 +1,24 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
 
 
+import {capitalize} from '../helpers/capitalize';
 class WeatherForm extends React.Component{
     
     constructor(props){
         super(props);
 
         this.state={
-            inputValue: typeof this.props.value != undefined ? this.props.value : '',
-            ifRedirect: false,
+            inputValue: typeof this.props.value != 'undefined' ? capitalize(this.props.value) : '',
+            
         };
     }
 
     formSubmit = (e) =>{
         e.preventDefault();
-        this.setState({ifRedirect: true});
+        this.props.onSubmit(capitalize(this.state.inputValue));
     }
     render(){
-        if(this.state.ifRedirect){
-            return <Redirect to={`/${this.state.inputValue}`}/>
-        }
+      
         return(
             <form action="" className="weather-form" onSubmit={e => this.formSubmit(e)}>
                 <input 
@@ -29,7 +27,7 @@ class WeatherForm extends React.Component{
                     name="city" 
                     placeholder="Wpisz miasto"
                     value={this.state.inputValue}
-                    onChange={e => this.setState({inputValue: e.target.value})} />
+                    onChange={e => this.setState({inputValue: capitalize(e.target.value)})} />
                 <button className="weather-form__button" type="submit">Sprawdź </button>
             </form>
         );

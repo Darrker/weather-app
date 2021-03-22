@@ -4,12 +4,19 @@ $weather_table_bg_color: #fff;
 $weather_table_header_bg_color: #f1f1f1;
 
 .weather-table{
-    
+    @media(max-width: $sm){
+        width: calc(100% - 30px);
+    }
     background-color: $weather_table_bg_color;
 
     &__title{
         font-size: 1.4em;
         padding: 5px $weather_table_left_right_padding;
+
+        @media(max-width: $sm){
+            font-size: 1.2em;
+            
+        }
     }
     &__icon{
         height: 30px;
@@ -17,6 +24,10 @@ $weather_table_header_bg_color: #f1f1f1;
 
     &__content{
         display: flex;
+
+        @media(max-width: $sm){
+            flex-direction: column;
+        }
     }
 
     &__col{
@@ -25,13 +36,19 @@ $weather_table_header_bg_color: #f1f1f1;
         border-right: 1px solid $weather_table_border_color;
         text-align: center;
         
-
+        @media(max-width: $sm){
+            display: flex;
+            width: 100% ;
+        }
         $col: &;
         
         &--days{
             width: 200px;
             text-align: left;
-
+            @media(max-width: $sm){
+                width: 100%;
+                
+            }
             #{$col}{
                 &__cell{
                     &--header{
@@ -45,6 +62,10 @@ $weather_table_header_bg_color: #f1f1f1;
             padding: 10px $weather_table_left_right_padding;
             border-bottom: 1px solid $weather_table_border_color;
             font-size: .85em;
+            @media(max-width: $sm){
+                width: 25%;
+               
+            }
             &--header{
                 font-size: 1em;
                 height: 50px;;
@@ -53,6 +74,10 @@ $weather_table_header_bg_color: #f1f1f1;
                 align-items: center;
                 font-weight: 900;
                 background-color: $weather_table_header_bg_color;
+                @media(max-width: $sm){
+                    height: auto;
+                    
+                }
 
             }
         }

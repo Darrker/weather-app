@@ -12,6 +12,7 @@ $citybox_border_color: #dedef3;
     transition: background-color .3s ease-in-out;
     will-change: background-color;
     background-color: $citybox_bg_color;
+    margin-bottom: 30px;
     &:hover{
         background-color: $citybox_bg__hover_color;
     }
@@ -20,6 +21,7 @@ $citybox_border_color: #dedef3;
         font-weight: 900;
         font-size: 1.3em;
         margin-bottom: 15px;
+        text-transform: capitalize;
         
     }
 

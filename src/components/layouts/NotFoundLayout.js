@@ -3,19 +3,25 @@ import AppHeader from '../../components/AppHeader';
 import AppHeaderPageTitle from '../../components/AppHeaderPageTitle';
 import WeatherForm from '../../components/WeatherForm';
 import Alert from '../../components/Alert';
-class NotFoundLayout extends React.Component{
+import Layout from './Layout';
+class NotFoundLayout extends Layout{
+    onSubmitWeatherForm = (city)=>{
+        this.props.history.push(`/${city.toLowerCase()}`);
+        
+        
+    } 
     render(){
         return(
             <AppHeader>
                 <Alert 
                     isVisible={true} 
                     type="error" title="Miasto nie istnieje" 
-                    content="Nie znaleziono miasta o podanej nazwie. Spróbuj ponownie"/>
+                    content="Nie znaleziono takiej strony"/>
                     <AppHeaderPageTitle>
-                        Wybierz <br /> <strong>miasto </strong>
+                        Sprawdź<br /> <strong>pogodę </strong>
                     </AppHeaderPageTitle>
                     
-                    <WeatherForm />
+                    <WeatherForm onSubmit={this.onSubmitWeatherForm}/>
             </AppHeader>
         );
         

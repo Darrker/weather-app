@@ -4,15 +4,14 @@
 @import './components/city_box.scss';
 @import './components/weather_table.scss';
 @import './components/weather_form.scss';
+@import './components/preloader.scss';
 body{
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
-.app{
-  
-}
+
 .app-header{
 
     width: 100%;
@@ -25,6 +24,13 @@ body{
     
     background-position:  center;
     position: relative;
+
+    @media(max-width: $sm){
+        min-height: 90vh;
+    }
+    .alert, .preloader{
+        margin: 30px 0;
+    }
     z-index: 1;
     &::before{
         content: '';
@@ -56,6 +62,10 @@ body{
         line-height: 1;
         color: white;
 
+        @media(max-width: $sm){
+            font-size: 2.5em;
+        }
+
         strong{
             color: $primary_color;
             font-weight: 900;
@@ -68,7 +78,14 @@ body{
 }
 
 
-
+.app{
+    &__city-box-area{
+        .preloader{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
 
 
 

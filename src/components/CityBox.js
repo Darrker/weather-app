@@ -8,14 +8,14 @@ class CityBox extends React.Component{
             <div className="city-box">
                 <span className="city-box__name">{this.props.city}</span>
                 <span className="city-box__weather-parameter">
-                    <img src={heat_icon}  className="city-box__icon" />{this.props.heat}
+                    <img src={heat_icon}  className="city-box__icon" alt="temperatura ikona" />{this.props.heat}
                 </span>
                 <span className="city-box__weather-parameter">
-                    <img src={humidity_icon} className="city-box__icon" />{this.props.humidity}
+                    <img src={humidity_icon} className="city-box__icon" alt="wilgotność ikona" />{this.props.humidity}
                 </span>
 
                 <span className="city-box__weather-parameter">
-                    <img src={wind_icon} className="city-box__icon" />{this.props.wind}
+                    <img src={wind_icon} className="city-box__icon" alt="wiatr ikona" />{this.props.wind}
                 </span>
             </div>
         );

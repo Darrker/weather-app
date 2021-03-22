@@ -1,6 +1,9 @@
 .weather-form{
     $field_height: 50px;
     display: flex;
+    @media(max-width: $sm){
+        flex-direction: column;
+    }
 
     &__field, &__button{
         height: $field_height;
