@@ -13,8 +13,8 @@ export var getCityData = async (city, days) =>{
         wind: [],
         humidity: [],
     };
-   
-    await  axios.get(`http://api.weatherapi.com/v1/forecast.json?key=8029ff9950ad44ffbc6172002211803&q=${city}&days=${days}&aqi=no&alerts=no`)
+    // Zdaje sobie sprawę, ze nie powinienem wrzucać na repo tokena. Tylko troszkę goni mnie czas, wybaczcie :)
+    await  axios.get(`https://api.weatherapi.com/v1/forecast.json?key=8029ff9950ad44ffbc6172002211803&q=${city}&days=${days}&aqi=no&alerts=no`)
     .then(response =>{
         var currentHour = getCurrentHour();
         var forecastDay = response.data.forecast.forecastday;
